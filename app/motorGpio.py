@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-GPIO.setmode(GPIO.BOARD)
 
 Motor_ONE_A = 1
 Motor_TWO_A = 2
@@ -10,12 +9,6 @@ Motor_TWO_B = 4
 Motor_THREE_A = 5
 Motor_THREE_B = 6
 
-GPIO.setup(Motor_ONE_A, GPIO.OUT)
-GPIO.setup(Motor_ONE_B, GPIO.OUT)
-GPIO.setup(Motor_TWO_A, GPIO.OUT)
-GPIO.setup(Motor_TWO_B, GPIO.OUT)
-GPIO.setup(Motor_THREE_A, GPIO.OUT)
-GPIO.setup(Motor_THREE_B, GPIO.OUT)
 
 def forward():
 	print "Setting up forward"
@@ -117,6 +110,31 @@ def counterClockwise():
 	GPIO.output(Motor_THREE_B, GPIO.LOW)
 	GPIO.output(Motor_ONE_B, GPIO.LOW)
 	GPIO.output(Motor_TWO_B, GPIO.LOW)
+
+def execute(queue):
+	GPIO.setmode(GPIO.BOARD)
+	GPIO.setup(Motor_ONE_A, GPIO.OUT)
+	GPIO.setup(Motor_ONE_B, GPIO.OUT)
+	GPIO.setup(Motor_TWO_A, GPIO.OUT)
+	GPIO.setup(Motor_TWO_B, GPIO.OUT)
+	GPIO.setup(Motor_THREE_A, GPIO.OUT)
+	GPIO.setup(Motor_THREE_B, GPIO.OUT)
+
+	for item in queue:
+		if(item == "Up"):
+			forward()
+		elif(item == "Down"):
+			backward()
+		elif(item == "Left"):
+			left()
+		elif(item == "Right"):
+			right()
+		elif(item == "CW"):
+			clockwise()
+		elif(item == "CCW"):
+			counterClockwise()
+
+	shutdown()
 
 
 def shutdown():
