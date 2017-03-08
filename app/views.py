@@ -32,4 +32,7 @@ def index():
 			#call func to rotate robot CCW
 			print("Rotating robot counterclockwise")
 			queue.append("CCW")
+		elif (request.form['submit'] == "Execute"):
+			print("Execute actions in queue")
+			queue = []
 	return render_template('untitled.html',title = 'Pi Controller',name = 'World', actionQueue = str(queue))
