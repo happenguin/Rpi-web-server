@@ -25,7 +25,7 @@ def forward():
 	GPIO.output(Motor_TWO_B, GPIO.HIGH)
 	print "Should be moving forward now"
 	sleep(2)
-	print "Shutting down A and B"
+	print "Shutting down ONE AND TWO"
 	GPIO.output(Motor_ONE_A, GPIO.LOW)
 	GPIO.output(Motor_TWO_B, GPIO.LOW)
 
@@ -37,7 +37,7 @@ def backward():
 	GPIO.output(Motor_TWO_B, GPIO.LOW)
 	print "Should be moving backward now"
 	sleep(2)
-	print "Shutting down A and B"
+	print "Shutting down ONE and TWO"
 	GPIO.output(Motor_ONE_B, GPIO.LOW)
 	GPIO.output(Motor_TWO_A, GPIO.LOW)
 
@@ -48,4 +48,12 @@ def left():
 	sleep(1)
 	GPIO.output(Motor_ONE_A, GPIO.LOW)
 	print "Setting up left"
-	
+	GPIO.output(Motor_THREE_A, GPIO.HIGH)
+	GPIO.output(Motor_THREE_B, GPIO.LOW)
+	GPIO.output(Motor_TWO_A, GPIO.LOW)
+	GPIO.output(Motor_TWO_B, GPIO.HIGH)
+	print "Should be moving forward now"
+	sleep(2)
+	print "Shutting down TWO AND THREE"
+	GPIO.output(Motor_ONE_A, GPIO.LOW
+	GPIO.output(Motor_TWO_B, GPIO.LOW)
