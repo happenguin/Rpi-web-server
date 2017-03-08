@@ -44,9 +44,11 @@ def backward():
 def left():
 	print "Adjusting to turn"
 	GPIO.output(Motor_ONE_A, GPIO.HIGH)
+	GPIO.output(Motor_ONE_B, GPIO.LOW)
 	print "Actually turning"
 	sleep(1)
 	GPIO.output(Motor_ONE_A, GPIO.LOW)
+	GPIO.output(Motor_ONE_B, GPIO.LOW)
 	print "Setting up left"
 	GPIO.output(Motor_THREE_A, GPIO.HIGH)
 	GPIO.output(Motor_THREE_B, GPIO.LOW)
@@ -59,12 +61,14 @@ def left():
 	GPIO.output(Motor_TWO_B, GPIO.LOW)
 	print "Readjusting to turn"
 	GPIO.output(Motor_ONE_B, GPIO.HIGH)
+	GPIO.output(Motor_ONE_A, GPIO.LOW)
 	sleep(1)
 	GPIO.output(Motor_ONE_B, GPIO.LOW)
 
-def right();
+def right():
 	print "Adjusting to turn"
 	GPIO.output(Motor_ONE_B, GPIO.HIGH)
+	GPIO.output(Motor_ONE_A, GPIO.LOW)
 	print "Actually turning"
 	sleep(1)
 	GPIO.output(Motor_ONE_B, GPIO.LOW)
@@ -80,5 +84,40 @@ def right();
 	GPIO.output(Motor_TWO_B, GPIO.LOW)
 	print "Readjusting to turn"
 	GPIO.output(Motor_ONE_A, GPIO.HIGH)
+	GPIO.output(Motor_ONE_B, GPIO.LOW)
 	sleep(1)
 	GPIO.output(Motor_ONE_A, GPIO.LOW)
+
+def clockwise():
+	print "Staring to turn"
+	GPIO.output(Motor_ONE_A, GPIO.HIGH)
+	GPIO.output(Motor_ONE_B, GPIO.LOW)
+	GPIO.output(Motor_TWO_A, GPIO.HIGH)
+	GPIO.output(Motor_TWO_B, GPIO.LOW)
+	GPIO.output(Motor_THREE_A, GPIO.HIGH)
+	GPIO.output(Motor_THREE_B, GPIO.LOW)
+	print "Lets turn ClockWise"
+	sleep(2)
+	print "Turning off clockwise"
+	GPIO.output(Motor_THREE_A, GPIO.LOW)
+	GPIO.output(Motor_ONE_A, GPIO.LOW)
+	GPIO.output(Motor_TWO_A, GPIO.LOW)
+
+def counterClockwise():
+	print "Staring to turn"
+	GPIO.output(Motor_ONE_A, GPIO.LOW)
+	GPIO.output(Motor_ONE_B, GPIO.HIGH)
+	GPIO.output(Motor_TWO_A, GPIO.LOW)
+	GPIO.output(Motor_TWO_B, GPIO.HIGH)
+	GPIO.output(Motor_THREE_A, GPIO.LOW)
+	GPIO.output(Motor_THREE_B, GPIO.HIGH)
+	print "Lets turn CounterClockWise"
+	sleep(2)
+	print "Turning off counterclockwise"
+	GPIO.output(Motor_THREE_B, GPIO.LOW)
+	GPIO.output(Motor_ONE_B, GPIO.LOW)
+	GPIO.output(Motor_TWO_B, GPIO.LOW)
+
+
+def shutdown():
+	GPIO.cleanup()
