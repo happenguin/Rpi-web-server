@@ -1,7 +1,8 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-
+# GPIO Pins, needs to be fixed later, as 1-6 are obviously not valid
+# TODO: All the turn sleeps are probably wrong, will fix as soon as circuit is built
 Motor_ONE_A = 1
 Motor_TWO_A = 2
 Motor_ONE_B = 3
