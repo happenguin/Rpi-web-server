@@ -55,5 +55,30 @@ def left():
 	print "Should be moving forward now"
 	sleep(2)
 	print "Shutting down TWO AND THREE"
-	GPIO.output(Motor_ONE_A, GPIO.LOW
+	GPIO.output(Motor_THREE_A, GPIO.LOW)
 	GPIO.output(Motor_TWO_B, GPIO.LOW)
+	print "Readjusting to turn"
+	GPIO.output(Motor_ONE_B, GPIO.HIGH)
+	sleep(1)
+	GPIO.output(Motor_ONE_B, GPIO.LOW)
+
+def right();
+	print "Adjusting to turn"
+	GPIO.output(Motor_ONE_B, GPIO.HIGH)
+	print "Actually turning"
+	sleep(1)
+	GPIO.output(Motor_ONE_B, GPIO.LOW)
+	print "Setting up left"
+	GPIO.output(Motor_THREE_A, GPIO.HIGH)
+	GPIO.output(Motor_THREE_B, GPIO.LOW)
+	GPIO.output(Motor_TWO_A, GPIO.LOW)
+	GPIO.output(Motor_TWO_B, GPIO.HIGH)
+	print "Should be moving forward now"
+	sleep(2)
+	print "Shutting down TWO AND THREE"
+	GPIO.output(Motor_THREE_A, GPIO.LOW)
+	GPIO.output(Motor_TWO_B, GPIO.LOW)
+	print "Readjusting to turn"
+	GPIO.output(Motor_ONE_A, GPIO.HIGH)
+	sleep(1)
+	GPIO.output(Motor_ONE_A, GPIO.LOW)
